@@ -1,4 +1,5 @@
 
+const { json } = require("express");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
@@ -63,11 +64,13 @@ app.post("/conta", (req,res) => {
 //Se todas minhas rotas a seguir irá conter esse Middleware utilizar desta forma
 // app.use(verificaExisteCPF);
 
+//Lista Extrato da conta
 app.get("/statement/",verificaExisteCPF, (req,res) => {
   const { cliente } = req;
   return res.json(cliente.statement);
 });
 
+//Efetua Deposito na conta
 app.post("/deposito",verificaExisteCPF, (req, res) => {
   const { descricao, valor } = req.body;
   
@@ -85,6 +88,7 @@ app.post("/deposito",verificaExisteCPF, (req, res) => {
   return res.status(201).send();
 });
 
+//Efetua Saque na conta
 app.post("/saque",verificaExisteCPF, (req,res) => {
   const { valor } = req.body;
   const { cliente } = req;
@@ -111,6 +115,7 @@ app.post("/saque",verificaExisteCPF, (req,res) => {
 
 });
 
+//Busca extrato por data
 app.get("/statement/data",verificaExisteCPF, (req,res) => {
   const { cliente } = req;
   //captura do query params a informação da data
@@ -126,6 +131,43 @@ app.get("/statement/data",verificaExisteCPF, (req,res) => {
 
   //Retornando o resultado
   return res.json(statement);
+});
+
+//Atualiza o nome da conta
+app.put("/conta",verificaExisteCPF, (req,res) => {
+  const { nome } = req.body;
+  const { cliente } = req;
+
+  cliente.nome = nome;
+
+  return res.status(201).send();
+});
+
+//Lista Contas
+app.get("/conta",verificaExisteCPF, (req,res) => {
+  const { cliente } = req;
+  return res.json(cliente);
+});
+
+//Deleta Conta
+app.delete("/conta",verificaExisteCPF, (req,res) => {
+  const { cliente } = req;
+
+  clientes.splice(cliente,1);
+
+  return res.status(200).json(clientes);
+
+});
+
+//Retorna o Saldo Atual
+app.get("/balanco",verificaExisteCPF, (req,res) => {
+  const { cliente } = req;
+
+  const balanco = getBalanco(cliente.statement);
+
+  return res.json({
+    "Saldo atual" : balanco,
+  });
 });
 
 app.listen(3333);
