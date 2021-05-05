@@ -1,4 +1,11 @@
-## FinAPI - Financeira
+# FinAPI - Financeira
+
+## Descrição do Projeto
+API criada a partir do curso Ignite da Trilha NodeJS da Rocketseat para utilização dos GET, POST, PUT e DELETE, e a utilização das middlewares durante a execução das requisições.
+Utilizando processo para criação de Conta, busca dos dados da conta, atualização dos dados da conta, Efetuando depósitos e saques, Buscando Saldo atual da conta, Buscando extrato por data, Deletando a conta<br><br>
+
+<a href="https://nodejs.org/en/">![Badge](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)</a>
+![Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 
 
