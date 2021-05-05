@@ -3,12 +3,11 @@
 ## Descrição do Projeto
 API para prática do curso Ignite da Trilha NodeJS da Rocketseat utilizando GET, POST, PUT e DELETE.
 Neste projeto foi criado uma API para ser consumida para criação de Conta, busca dos dados da conta, atualização dos dados da conta, Efetuando depósitos e saques, Buscando Saldo atual da conta, Buscando extrato por data, Deletando a conta. Logo abaixo demonstra todos os Requisitos e Regras de negócios utilizados para construção do projeto.
-<br><br>
 
+
+### 🛠 Tecnologias
 <a href="https://nodejs.org/en/">![Badge](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)</a>
 ![Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-
 
 ### Requisitos
 
